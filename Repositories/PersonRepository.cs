@@ -2,6 +2,7 @@ namespace ControleGastos.Repositories;
 
 using ControleGastos.Data;
 using ControleGastos.Models;
+using Microsoft.EntityFrameworkCore;
 
 public class PersonRepository : IPersonRepository {
     private readonly AppDbContext context;

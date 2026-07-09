@@ -2,6 +2,7 @@ namespace ControleGastos.Repositories;
 
 using ControleGastos.Data;
 using ControleGastos.Models;
+using Microsoft.EntityFrameworkCore;
 
 public class TransactionRepository : ITransactionRepository {
     private readonly AppDbContext context;
