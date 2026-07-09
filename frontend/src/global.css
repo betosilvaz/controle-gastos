@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    --font-color: #1A1D23;
+    --background-color: #FAFBFC;
+    --elevation-color: #FFFFFF;
+    --border-color: #E1E4E8;
+    --link-color: #1D6FDB;  
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--font-color)
+}
+
+.container {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    padding: 1rem;
+}
