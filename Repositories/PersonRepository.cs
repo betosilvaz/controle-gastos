@@ -1,3 +1,5 @@
+namespace ControleGastos.Repositories;
+
 public class PersonRepository : IPersonRepository {
     private readonly AppDbContext context;
 

@@ -1,3 +1,5 @@
+namespace ControleGastos.Repositories;
+
 public interface IPersonRepository {
     Task Add(Person person);
     Task<List<Person>> FindAll();
