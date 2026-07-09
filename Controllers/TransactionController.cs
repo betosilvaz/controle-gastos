@@ -1,6 +1,8 @@
 namespace ControleGastos.Controllers;
 
 using ControleGastos.DTOs;
+using ControleGastos.Services;
+using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("api/transactions")]
