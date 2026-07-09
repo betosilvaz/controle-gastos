@@ -31,7 +31,7 @@ public class PersonService {
         var person = await personRepository.findById(personId);
 
         if (person == null)
-            throw new Exception("Não existe usuário com este Id.")
+            throw new Exception("Não existe usuário com este Id.");
 
         await personRepository.Delete(person);
     }
