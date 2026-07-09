@@ -12,7 +12,7 @@ public class PersonService {
     }
 
     public async Task Create(CreatePersonDto dto) {
-        if (string.IsNullOrWhiteSpace(dto.Name) || string.IsNullOrWhiteSpace(dto.Age))
+        if (string.IsNullOrWhiteSpace(dto.Name) || dto.Age == null)
             throw new Exception("Todos os campos devem ser preenchidos.");
 
         var person = new Person {
@@ -24,11 +24,12 @@ public class PersonService {
     }
 
     public async Task<List<Person>> List() {
-        return await List<Person> persons = personRepository.FindAll();
+        List<Person> persons = await personRepository.FindAll();
+        return persons;
     }
 
     public async Task Delete(int personId) {
-        var person = await personRepository.findById(personId);
+        var person = await personRepository.FindById(personId);
 
         if (person == null)
             throw new Exception("Não existe usuário com este Id.");
