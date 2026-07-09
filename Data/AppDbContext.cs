@@ -1,4 +1,4 @@
-namespace ConstroleGastos.Data;
+namespace ControleGastos.Data;
 
 using Microsoft.EntityFrameworkCore;
 using ControleGastos.Models;
