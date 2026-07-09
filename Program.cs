@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ControleGastos.Data;
+using ControleGastos.Repositories;
+using ControleGastos.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
