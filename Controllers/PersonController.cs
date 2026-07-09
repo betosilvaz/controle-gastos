@@ -29,7 +29,20 @@ public class PersonController : ControllerBase {
     public async Task<IActionResult> List() {
         try {
             List<Person> persons = await personService.List();
-            return Ok(persons);
+
+            var response = persons.Select(p => new PersonResponseDto {
+                Id = p.Id,
+                Name = p.Name,
+                Age = p.Age,
+                Transactions = p.Transactions.Select(t => new PersonTransactionResponseDto {
+                    Id = t.Id,
+                    Description = t.Description,
+                    Value = t.Value,
+                    Type = t.Type
+                }).ToList()
+            }).ToList();
+
+            return Ok(response);
         } catch (Exception e) {
             return BadRequest(e.Message);
         }

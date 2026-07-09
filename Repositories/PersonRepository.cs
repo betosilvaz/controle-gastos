@@ -17,7 +17,7 @@ public class PersonRepository : IPersonRepository {
     }
 
     public async Task<List<Person>> FindAll() {
-        return await context.Persons.ToListAsync();
+        return await context.Persons.Include(p => p.Transactions).ToListAsync();
     }
 
     public async Task<Person?> FindById(int id) {

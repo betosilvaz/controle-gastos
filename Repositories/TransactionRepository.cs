@@ -17,7 +17,7 @@ public class TransactionRepository : ITransactionRepository {
     }
 
     public async Task<List<Transaction>> FindAll() {
-        return await context.Transactions.ToListAsync();
+        return await context.Transactions.Include(t => t.Person).ToListAsync();
     }
 
     public async Task<Transaction?> FindById(int id) {
