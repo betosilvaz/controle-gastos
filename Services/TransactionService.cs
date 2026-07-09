@@ -32,4 +32,9 @@ public class TransactionService
 
         await transactionRepository.Add(transaction);
     }
+
+    public async Task<List<Transaction>> List() {
+        List<Transaction> transactions = await transactionRepository.FindAll();
+        return transactions;
+    }
 }
