@@ -1,5 +1,8 @@
 namespace ControleGastos.Repositories;
 
+using ControleGastos.Data;
+using ControleGastos.Models;
+
 public class TransactionRepository : ITransactionRepository {
     private readonly AppDbContext context;
 
