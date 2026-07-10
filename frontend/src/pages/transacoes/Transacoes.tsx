@@ -91,7 +91,7 @@ export default function Transacoes() {
         {formOpen && (
           <form onSubmit={addTransaction} className={styles.form}>
             <label htmlFor="description">Descrição</label>
-            <textarea className={styles.formItem} id="descricao" placeholder="Descrição" name="description" value={form?.description} onChange={handleChange}></textarea>
+            <textarea className={styles.formItem} id="description" placeholder="Descrição" name="description" value={form?.description} onChange={handleChange}></textarea>
             <label htmlFor="value">Valor</label>
             <input className={styles.formItem} id="value" type="number" placeholder="Valor" name="value" value={form?.value} onChange={handleChange} />
             <label htmlFor="personId">Pessoa ID</label>
@@ -129,7 +129,12 @@ export default function Transacoes() {
                 <tr key={t.id} className={styles.tableItem}>
                   <td>{t.id}</td>
                   <td>{t.description}</td>
-                  <td>{t.value}</td>
+                  <td>
+                    {t.value.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </td>
                   <td>{t.type == 0 ? "Despesa" : "Entrada"}</td>
                   <td>{t.person.name}</td>
                 </tr>
