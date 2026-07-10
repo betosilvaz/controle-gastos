@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import Pessoas from './Pessoas'
+import Pessoas from '@pages/pessoas/Pessoas'
 
 export const Route = createFileRoute('/pessoas/')({
   head: () => ({
