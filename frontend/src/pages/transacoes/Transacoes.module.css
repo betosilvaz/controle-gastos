@@ -1,0 +1,77 @@
+/* header */
+.header {
+    padding: 1rem;
+    background-color: var(--elevation-color);
+    border: 1px solid var(--border-color);
+}
+
+.title {
+    font-size: 2rem;
+    text-align: center;
+    display: block;
+}
+
+/* lista de pessoas */
+.table {
+    border-collapse: collapse;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    width: 100%;
+}
+.tableHeader {
+    background-color: #a3a3a3;
+}
+.tableHeader th, .tableItem td {
+    text-align: left;
+    padding: 1rem;
+}
+.tableItem {
+
+}
+.emptyList {
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    border-style: dashed;
+    padding: 3rem 5rem;
+}
+
+/* section */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.actionTitle {
+    font-size: 1.5rem;
+}
+
+/* botao */
+.button {
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    background-color: var(--elevation-color);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+}
+.deleteButton {
+    padding: 0.5rem 1rem;
+    background-color: rgb(255, 74, 74);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+}
+
+/* form */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+.formItem, .formSubmit, .formCancel {
+    padding: 1rem 1rem;
+}
