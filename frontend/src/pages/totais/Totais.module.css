@@ -1,0 +1,62 @@
+.header {
+    padding: 2rem 0;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.cards {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.card {
+    flex: 1;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.cardTitle {
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: 600;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: .8rem;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.income {
+    color: #1f8f3a;
+}
+
+.expense {
+    color: #d12b2b;
+}
+
+.positive {
+    color: #1f8f3a;
+    font-weight: bold;
+}
+
+.negative {
+    color: #d12b2b;
+    font-weight: bold;
+}
+
+.empty {
+    text-align: center;
+    padding: 3rem;
+}

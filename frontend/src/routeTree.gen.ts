@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TransacoesIndexRouteImport } from './routes/transacoes/index'
+import { Route as TotaisIndexRouteImport } from './routes/totais/index'
 import { Route as PessoasIndexRouteImport } from './routes/pessoas/index'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const TransacoesIndexRoute = TransacoesIndexRouteImport.update({
   path: '/transacoes/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TotaisIndexRoute = TotaisIndexRouteImport.update({
+  id: '/totais/',
+  path: '/totais/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PessoasIndexRoute = PessoasIndexRouteImport.update({
   id: '/pessoas/',
   path: '/pessoas/',
@@ -32,30 +38,34 @@ const PessoasIndexRoute = PessoasIndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/pessoas/': typeof PessoasIndexRoute
+  '/totais/': typeof TotaisIndexRoute
   '/transacoes/': typeof TransacoesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/pessoas': typeof PessoasIndexRoute
+  '/totais': typeof TotaisIndexRoute
   '/transacoes': typeof TransacoesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/pessoas/': typeof PessoasIndexRoute
+  '/totais/': typeof TotaisIndexRoute
   '/transacoes/': typeof TransacoesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pessoas/' | '/transacoes/'
+  fullPaths: '/' | '/pessoas/' | '/totais/' | '/transacoes/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pessoas' | '/transacoes'
-  id: '__root__' | '/' | '/pessoas/' | '/transacoes/'
+  to: '/' | '/pessoas' | '/totais' | '/transacoes'
+  id: '__root__' | '/' | '/pessoas/' | '/totais/' | '/transacoes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PessoasIndexRoute: typeof PessoasIndexRoute
+  TotaisIndexRoute: typeof TotaisIndexRoute
   TransacoesIndexRoute: typeof TransacoesIndexRoute
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TransacoesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/totais/': {
+      id: '/totais/'
+      path: '/totais'
+      fullPath: '/totais/'
+      preLoaderRoute: typeof TotaisIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pessoas/': {
       id: '/pessoas/'
       path: '/pessoas'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PessoasIndexRoute: PessoasIndexRoute,
+  TotaisIndexRoute: TotaisIndexRoute,
   TransacoesIndexRoute: TransacoesIndexRoute,
 }
 export const routeTree = rootRouteImport
