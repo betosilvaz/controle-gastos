@@ -3,7 +3,7 @@ import Pessoas from '@pages/pessoas/Pessoas'
 
 export const Route = createFileRoute('/pessoas/')({
   head: () => ({
-    meta: [{ title: 'Pessoas' }]
+    meta: [{ title: 'Dashboard - Pessoas' }]
   }),
   loader: async () => fetchPessoas(),
   component: Pessoas,
