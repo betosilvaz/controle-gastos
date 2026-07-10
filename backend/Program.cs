@@ -7,6 +7,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.Services.AddCors(options => {
+    options.AddPolicy("React", policy => {
+        policy
+            .WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddDbContext<AppDbContext>(options => {
     options.UseSqlite(builder.Configuration.GetConnectionString("Default"));
 });
@@ -29,6 +38,8 @@ if (app.Environment.IsDevelopment()) {
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("React");
 
 app.MapControllers();
 
