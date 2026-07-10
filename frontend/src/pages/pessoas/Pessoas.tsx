@@ -1,4 +1,4 @@
-import { useLoaderData } from "@tanstack/react-router";
+import { useLoaderData, useRouter } from "@tanstack/react-router";
 import styles from './Pessoas.module.css'
 
 import { useState } from "react";
@@ -24,6 +24,7 @@ interface Form {
 }
 
 export default function Pessoas() {
+  const router = useRouter()
   const [formOpen, setFormOpen] = useState<boolean>(false)
   const [form, setForm] = useState<Form>({
     name: '',
@@ -55,7 +56,7 @@ export default function Pessoas() {
       })
 
       setFormOpen(false)
-
+      router.invalidate()
     } catch (e: unknown) {
       if (e instanceof Error) {
         toast.error(e.message)
@@ -70,6 +71,7 @@ export default function Pessoas() {
       })
       if (!response.ok) throw new Error("Não foi possível apagar o usuário")
       toast.success("Usuário excluido com sucesso!")
+      router.invalidate()
     } catch (e: unknown) {
       if (e instanceof Error)
         toast.error(e.message)
@@ -118,6 +120,7 @@ export default function Pessoas() {
           <table className={styles.table}>
             <thead>
               <tr className={styles.tableHeader}>
+                <th>Id</th>
                 <th>Nome</th>
                 <th>Idade</th>
                 <th>Ações</th>
@@ -127,6 +130,7 @@ export default function Pessoas() {
             <tbody>
               {pessoas.map(p => (
                 <tr key={p.id} className={styles.tableItem}>
+                  <td>{p.id}</td>
                   <td>{p.name}</td>
                   <td>{p.age}</td>
                   <td><button className={styles.deleteButton} onClick={deleteUser} data-id={p.id}>Excluir</button></td>
