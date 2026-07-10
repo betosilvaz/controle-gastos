@@ -103,8 +103,10 @@ export default function Pessoas() {
         </section>
         {formOpen && (
           <form onSubmit={addUser} className={styles.form}>
-            <input className={styles.formItem} type="text" placeholder="Nome" name="name" value={form.name} onChange={handleChange}/>
-            <input className={styles.formItem} type="number" placeholder="Idade" name="age" value={form.age} onChange={handleChange}/>
+            <label htmlFor="name">Nome</label>
+            <input className={styles.formItem} id="name" type="text" placeholder="Nome" name="name" value={form.name} onChange={handleChange}/>
+            <label htmlFor="age">Idade</label>
+            <input className={styles.formItem} id="age" type="number" placeholder="Idade" name="age" value={form.age} onChange={handleChange}/>
             <button className={styles.formSubmit} type="submit">Concluir</button>
             <button className={styles.formCancel} type="button" onClick={() => setFormOpen(false)}>Fechar</button>
           </form>
